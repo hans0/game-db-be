@@ -1,7 +1,7 @@
-exports.seed = function(knex, Promise) {
-  return knex('tables').del()
+exports.seed = function(knex) {
+  return knex('boxes').del()
     .then(function() {
-      return knex('tables').insert([
+      return knex('boxes').insert([
         {
           nickname: 'Pikachu',
           barcode: 'PIKACHU'
