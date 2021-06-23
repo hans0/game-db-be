@@ -7,4 +7,9 @@ server.use(express.json())
 server.use(helmet())
 server.use(cors())
 
+const boxRouter = require('./boxes/boxes-router');
+
+server.use('/api/box', boxRouter)
+
+
 module.exports = server
