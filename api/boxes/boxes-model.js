@@ -4,6 +4,7 @@ module.exports = {
   add,
   findById,
   getBoxes,
+  findByBarcode,
 }
 
 function getBoxes() {
@@ -18,5 +19,11 @@ async function add(box) {
 function findById(box_id) {
   return db('boxes').select('box_id', 'nickname', 'barcode')
     .where('box_id', box_id)
+    .first()
+}
+
+function findByBarcode(box_barcode) {
+  return db('boxes').select('box_id')
+    .where('barcode', box_barcode)
     .first()
 }

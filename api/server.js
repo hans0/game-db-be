@@ -9,7 +9,7 @@ server.use(cors())
 
 const boxRouter = require('./boxes/boxes-router');
 
-server.use('/api/box', boxRouter)
+server.use('/api/boxes', boxRouter)
 
 
 module.exports = server

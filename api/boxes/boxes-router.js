@@ -12,6 +12,18 @@ router.get('/', (req, res) =>{
     });
 });
 
+router.get('/:barcode', (req, res) => {
+  const { barcode } = req.params;
+  console.log('searching by barcode', barcode)
+  Boxes.findByBarcode(barcode)
+    .then(box => {
+      res.status(200).json(box)
+    })
+    .catch(err => {
+      res.status(404).json(err)
+    })
+})
+
 router.post('/', (req, res, next) => {
   const box = req.body;
   Boxes.add(box)
