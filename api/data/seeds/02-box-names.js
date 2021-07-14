@@ -3,15 +3,15 @@ exports.seed = function(knex) {
     .then(function() {
       return knex('boxes').insert([
         {
-          nickname: 'Pikachu',
+          barcode: 'OUTOFBOX'
+        },
+        {
           barcode: 'PIKACHU'
         },
         {
-          nickname: 'Bulbasaur',
           barcode: 'BULBASAUR'
         },
         {
-          nickname: 'Charmander',
           barcode: 'CHARMANDER'
         }
       ])
