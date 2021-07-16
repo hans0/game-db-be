@@ -24,14 +24,14 @@ exports.up = async function (knex) {
       tables.string("object_table_name");
     })
     .createTable("barcodes", (barcodes) => {
-      barcodes.string("barcode");
+      barcodes.string("barcode", 55).unique();
       barcodes
         .integer("object_table_id")
         .references("object_table_id")
         .inTable("object_tables");
     })
     .createTable("barcodes_to_box", (btb) => {
-      btb.string("object_barcode", 55);
+      btb.string("object_barcode", 55).unique();
       btb.integer("box_id").references("box_id").inTable("boxes");
     });
   /*

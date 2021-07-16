@@ -10,15 +10,6 @@ const transfer = async (objectBarcode, boxBarcode) => {
   };
   console.log(entry);
   const insertRes = await db("barcodes_to_box").insert(entry);
-
-  /*
-  const e = await db("barcodes_to_box")
-    .select("barcode", "box_id")
-    .where("barcode", boxBarcode)
-    .first();
-  console.log("e: ", e);
-  return e;
-  */
 };
 
 module.exports = {
