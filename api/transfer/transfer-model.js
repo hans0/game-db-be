@@ -6,28 +6,19 @@ const transfer = async (objectBarcode, boxBarcode) => {
     .select("box_id")
     .where("barcode", boxBarcode)
     .first();
-  console.log(res.box_id);
   const entry = {
     object_barcode: objectBarcode,
     box_id: res.box_id,
   };
-  console.log(entry);
-  const insertRes = await db("barcodes_to_box")
+  await db("barcodes_to_box")
     .insert(entry)
     .onConflict("object_barcode")
-    .merge()
-  console.log(insertRes);
-  // const [boxId] = await db("boxes")
-  //   .select("box_id")
-  //   .where("barcode", boxBarcode)
-  //   .first();
-  // console.log(boxId);
-  // const entry = {
-  //   object_barcode: objectBarcode,
-  //   box_id: boxId,
-  // };
-  // console.log(entry);
-  // const insertRes = await db("barcodes_to_box").insert(entry);
+    .merge(entry);
+  return db("barcodes_to_box as btb")
+    .select("*")
+    .leftJoin("boxes as b", "btb.box_id", "b.box_id")
+    .where("object_barcode", objectBarcode)
+    .first();
 };
 
 module.exports = {
