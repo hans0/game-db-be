@@ -12,7 +12,10 @@ const transfer = async (objectBarcode, boxBarcode) => {
     box_id: res.box_id,
   };
   console.log(entry);
-  const insertRes = await db("barcodes_to_box").insert(entry);
+  const insertRes = await db("barcodes_to_box")
+    .insert(entry)
+    .onConflict("object_barcode")
+    .merge()
   console.log(insertRes);
   // const [boxId] = await db("boxes")
   //   .select("box_id")
