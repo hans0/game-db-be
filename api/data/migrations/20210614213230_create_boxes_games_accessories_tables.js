@@ -29,6 +29,7 @@ exports.up = async function (knex) {
         .integer("object_table_id")
         .references("object_table_id")
         .inTable("object_tables");
+      barcodes.integer("object_id");
     })
     .createTable("barcodes_to_box", (btb) => {
       btb.string("object_barcode", 55).unique();
