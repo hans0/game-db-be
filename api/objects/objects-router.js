@@ -1,17 +1,15 @@
-const db = require("../data/db-config.js");
+const router = require("express").Router();
 
-// this just belongs in an object router
-const getObjectBoxByBarcode = async (objectBarcode) => {
-  const objectQuery = await db("barcodes_to_box")
-    .select()
-    .where("object_barcode", objectBarcode);
-  const result = {
-    objectBarcode: objectBarcode,
-    boxId: objectQuery[0]["box_id"],
-  };
-  return result;
-};
+const Objects = require("./objects-model");
 
-module.exports = {
-  getObjectBoxByBarcode,
-};
+router.get("/:barcode", (req, res) => {
+  Objects.getObjectBoxByBarcode(req.params.barcode)
+    .then((object) => {
+      res.status(200).json(object);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+});
+
+module.exports = router;
