@@ -9,7 +9,10 @@ router.post("/", (req, res) => {
       res.status(200).json(object);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.status(207).json({
+        httpCode: 207,
+        message: `${boxBarcode} does not correspond to a box`,
+      });
     });
 });
 

@@ -8,6 +8,7 @@ exports.seed = function (knex) {
         { object_table_name: "boxes" },
         { object_table_name: "games" },
         { object_table_name: "accessories" },
+        { object_table_name: "not inserted yet" },
       ]);
     });
 };

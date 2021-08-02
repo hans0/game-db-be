@@ -22,4 +22,16 @@ router.get("/:barcode/taken", (req, res) => {
     });
 });
 
+router.post("/create/:barcode", (req, res) => {
+  Barcodes.create(req.params.barcode)
+    .then((object) => {
+      console.log(object);
+      res.status(201).json(object);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
+
 module.exports = router;
