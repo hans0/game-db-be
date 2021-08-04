@@ -2,6 +2,18 @@ const router = require("express").Router();
 
 const Barcodes = require("./barcodes-model");
 
+router.get("/all", (req, res) => {
+  Barcodes.getAll().then((all) => {
+    res.status(200).json(all);
+  });
+});
+
+router.get(["/locations/all", "/all/locations"], (req, res) => {
+  Barcodes.getAllLocations().then((all) => {
+    res.status(200).json(all);
+  });
+});
+
 router.get("/:barcode/taken", (req, res) => {
   Barcodes.taken(req.params.barcode)
     .then((object) => {
