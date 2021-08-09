@@ -9,6 +9,7 @@ router.post("/", (req, res) => {
       res.status(200).json(object);
     })
     .catch((err) => {
+      // TODO: this needs to be expanded/updated
       res.status(207).json({
         httpCode: 207,
         message: `${boxBarcode} does not correspond to a box`,

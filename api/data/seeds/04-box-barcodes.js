@@ -7,22 +7,22 @@ exports.seed = function (knex) {
       return knex("barcodes").insert([
         {
           barcode: "OUTOFBOX",
-          object_table_id: 2,
+          object_table_id: 1,
           object_id: 1,
         },
         {
           barcode: "PIKACHU",
-          object_table_id: 2,
+          object_table_id: 1,
           object_id: 2,
         },
         {
           barcode: "BULBASAUR",
-          object_table_id: 2,
+          object_table_id: 1,
           object_id: 3,
         },
         {
           barcode: "CHARMANDER",
-          object_table_id: 2,
+          object_table_id: 1,
           object_id: 4,
         },
       ]);

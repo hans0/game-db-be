@@ -1,7 +1,7 @@
 const db = require("../data/db-config.js");
+const upsert = require("knex-upsert");
 
 const transfer = async (objectBarcode, boxBarcode) => {
-  // the await needs to be here, otherwise get an undefined for the box number
   const res = await db("boxes")
     .select("box_id")
     .where("barcode", boxBarcode)
@@ -10,10 +10,12 @@ const transfer = async (objectBarcode, boxBarcode) => {
     object_barcode: objectBarcode,
     box_id: res.box_id,
   };
-  await db("barcodes_to_box")
-    .insert(entry)
-    .onConflict("object_barcode")
-    .merge(entry);
+  await upsert({
+    db,
+    table: "barcodes_to_box",
+    object: entry,
+    key: "object_barcode",
+  });
   return db("barcodes_to_box as btb")
     .select("*")
     .leftJoin("boxes as b", "btb.box_id", "b.box_id")
