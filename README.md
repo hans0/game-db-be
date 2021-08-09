@@ -2,11 +2,12 @@
 
 ## Barcodes
 
+### Endpoints
 
-
-- [PostgreSQL, pgAdmin 4](https://www.postgresql.org/download/) and [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed in your local machine.
-- A Heroku app with the [Heroku PostgreSQL Addon](https://devcenter.heroku.com/articles/heroku-postgresql#provisioning-heroku-postgres) added to it.
-- Development and testing databases created with [pgAdmin 4](https://www.pgadmin.org/docs/pgadmin4/4.29/database_dialog.html).
+| Endpoint                    | What it does                                                                                                                                                                     |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/barcodes/{barcode}/taken` | Returns a JSON with item information if taken, and a JSON with barcode if not taken. Both JSONs include a `taken` field                                                          |
+| `/citypairs/airfares/{id}`  | Returns an array of Airfares based on unique identifier. Array will contain one airfare. (This is just for demonstration purpose. For City Pairs, the ID does not have meaning.) |
 
 ## Starting a New Project
 
