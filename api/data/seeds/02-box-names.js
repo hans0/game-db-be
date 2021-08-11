@@ -6,6 +6,9 @@ exports.seed = function(knex) {
           barcode: 'OUTOFBOX'
         },
         {
+          barcode: 'SHELF'
+        },
+        {
           barcode: 'PIKACHU'
         },
         {

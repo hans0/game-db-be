@@ -15,5 +15,5 @@ server.use(express.static(path.join(__dirname, 'client/dist')))
 // })
 
 server.listen(port, () => {
-  console.log('listening on ' + port)
+  console.log('Listening on port: ' + port)
 })
