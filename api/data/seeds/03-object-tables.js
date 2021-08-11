@@ -6,9 +6,9 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex("object_tables").insert([
         { object_table_name: "boxes" },
+        { object_table_name: "not inserted yet" },
         { object_table_name: "games" },
         { object_table_name: "accessories" },
-        { object_table_name: "not inserted yet" },
       ]);
     });
 };

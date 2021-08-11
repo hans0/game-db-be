@@ -29,7 +29,7 @@ const create = async (barcode) => {
     // TODO: can probably make this atomic
     await db("barcodes").insert({
       barcode: barcode,
-      object_table_id: 1,
+      object_table_id: 2,
       object_id: 0,
     });
     await db("barcodes_to_box").insert({

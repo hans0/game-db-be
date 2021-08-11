@@ -29,17 +29,17 @@ exports.seed = function (knex) {
           return knex("barcodes").insert([
             {
               barcode: "NESEVRDRV",
-              object_table_id: 2,
+              object_table_id: 3,
               object_id: 1,
             },
             {
               barcode: "N64EVRDRV",
-              object_table_id: 2,
+              object_table_id: 3,
               object_id: 2,
             },
             {
               barcode: "SNESFXPAK",
-              object_table_id: 2,
+              object_table_id: 3,
               object_id: 3,
             },
           ]);
