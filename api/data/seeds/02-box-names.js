@@ -16,6 +16,12 @@ exports.seed = function(knex) {
         },
         {
           barcode: 'CHARMANDER'
+        }, 
+        {
+          barcode: 'SQUIRTLE'
+        },
+        {
+          barcode: 'WARTORTLE'
         }
       ])
     })
